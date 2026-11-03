@@ -20,7 +20,6 @@ function renderNotes() {
   notesEmpty.hidden = notesCache.length > 0;
   for (const note of notesCache) {
     const card = document.createElement("article");
-    // card.className = `sticky-note note-${["yellow","blue","pink","green"].includes(note.color) ? note.color : "yellow"}${note.pinned ? " is-pinned" : ""}`;
     card.className = `sticky-note${note.pinned ? " is-pinned" : ""}`;
     const title = document.createElement("h3"); title.textContent = note.title || "Untitled note";
     const content = document.createElement("p"); content.className = "sticky-note-content"; content.textContent = note.content;

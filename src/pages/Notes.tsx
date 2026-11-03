@@ -2,9 +2,7 @@ import { useState, type FormEvent } from "react";
 import { PageHeader } from "../components/Shell";
 import { useNotes, useRefreshData } from "../hooks/useData";
 import { deleteNote, saveNote } from "../lib/repo";
-import type { Note, NoteColor } from "../lib/types";
-
-const COLORS: NoteColor[] = ["yellow", "blue", "pink", "green"];
+import type { Note } from "../lib/types";
 
 export default function Notes() {
   const notesQuery = useNotes();
@@ -93,7 +91,7 @@ export default function Notes() {
         </div>
         <div className="notes-grid">
           {notes.map(note => (
-            <article key={note.id} className={`sticky-note note-${COLORS.includes(note.color) ? note.color : "yellow"}${note.pinned ? " is-pinned" : ""}`}>
+            <article key={note.id} className={`sticky-note${note.pinned ? " is-pinned" : ""}`}>
               <h3>{note.title || "Untitled note"}</h3>
               <p className="sticky-note-content">{note.content}</p>
               <p className="sticky-note-date">
